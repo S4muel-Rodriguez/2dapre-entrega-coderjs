@@ -57,3 +57,20 @@ document.addEventListener('DOMContentLoaded', () => {
         alert('Por favor, completa todos los campos correctamente.');
     }
 });
+
+
+// Optimización utilizando operadores lógicos y ternarios
+const isPositive = (number) => number > 0;
+
+// Validación de cantidad positiva usando operador lógico AND
+order.quantity = isPositive(order.quantity) ? order.quantity : 0;
+
+// Mostrar resultados usando operadores ternarios
+console.log(`Cantidad: ${order.quantity}`);
+console.log(`Tiene comentario: ${order.comment.length > 0 ? 'Sí' : 'No'}`);
+
+// Desestructuración para obtener cantidad y comentario
+const { quantity, comment } = order;
+
+// Mostrar resultados en alertas con spread operator para copiar el objeto
+alert(`Detalles de la orden:\nComida: ${order.food}\nBebida: ${order.drink}\nCantidad: ${quantity}\nComentario: ${comment}`);

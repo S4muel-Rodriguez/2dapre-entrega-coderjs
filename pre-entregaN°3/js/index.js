@@ -126,3 +126,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+// Objeto con precios de comida
+const preciocomida = {
+    papas: 10,
+    milanesa: 20,
+    'carne roja': 30,
+    pechuga: 25,
+    ensalada: 15
+};
+
+// Guardar precios de comida en localStorage usando JSON
+localStorage.setItem('preciosComida', JSON.stringify(preciosComida));
+
+// Recuperar precios de comida desde localStorage y convertir de JSON a objeto
+const preciosGuardados = JSON.parse(localStorage.getItem('preciosComida'));
+
+// Mostrar precios recuperados en consola usando desestructuración y operador ternario
+const { papas, milanesa, 'carne roja': carneRoja, pechuga, ensalada } = preciosGuardados;
+console.log(`Precios recuperados:
+    Papas: ${papas || 'No disponible'}
+    Milanesa: ${milanesa || 'No disponible'}
+    Carne Roja: ${carneRoja || 'No disponible'}
+    Pechuga: ${pechuga || 'No disponible'}
+    Ensalada: ${ensalada || 'No disponible'}
+`);

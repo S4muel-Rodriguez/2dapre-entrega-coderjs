@@ -33,3 +33,22 @@ document.addEventListener('DOMContentLoaded', () => {
     // Agregar evento al formulario
     form.addEventListener('submit', processForm);
 });
+
+
+  // Función para recuperar datos de localStorage al cargar la página
+  const retrieveFormDataFromLocalStorage = (key) => {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
+};
+
+// Recuperar datos del localStorage al cargar la página
+const storedFormData = retrieveFormDataFromLocalStorage('formData');
+if (storedFormData) {
+    nameInput.value = storedFormData[0].value;
+    emailInput.value = storedFormData[1].value;
+    passwordInput.value = storedFormData[2].value;
+    messageInput.value = storedFormData[3].value;
+}
+
+// Agregar evento al formulario
+form.addEventListener('submit', processForm);

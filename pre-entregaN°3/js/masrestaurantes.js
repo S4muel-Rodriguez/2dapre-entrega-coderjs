@@ -82,3 +82,19 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('No hay restaurantes disponibles.');
     }
 });
+
+// Almacenamiento en localStorage
+const saveToLocalStorage = (key, data) => {
+    localStorage.setItem(key, JSON.stringify(data));
+};
+
+const retrieveFromLocalStorage = (key) => {
+    const data = localStorage.getItem(key);
+    return data ? JSON.parse(data) : null;
+};
+
+// Ejemplo de uso del almacenamiento
+const key = 'dato de restaurante';
+saveToLocalStorage(key, restaurants);
+const retrievedData = retrieveFromLocalStorage(key);
+console.log('Datos recuperados del localStorage:', retrievedData);
